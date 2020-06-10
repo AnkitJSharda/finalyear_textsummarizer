@@ -1,0 +1,184 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{% load static %}
+	<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+	<style type="text/css">
+
+		body{
+			background-size: cover;
+			margin: 0;
+		}
+
+
+		#label {
+			position: relative;
+			background-color: black;
+			width: 100%;
+			height:70px;
+			font-size: 45px;
+			color: #ffd11a;
+			font-family: 'Lobster', cursive;
+			margin-top: 0px;
+			margin-left: 0px;
+			padding-left: 530px;
+			padding-top: 10px;
+		}
+
+	
+
+		table {
+			position: absolute;
+			top: 15%;
+			left: 10%;
+			height: 550px;
+			width : 40%;
+			background-color: #e6e6ff;
+			border-radius: 10px;
+			border: 1px solid black;
+		}
+
+		.btn {
+			margin-top: 8px;
+			position: absolute;
+			top: 86%;
+			left: 3%;
+			font-family: verdana;
+			background-color: #4CAF50; /* Green */
+			width: 94%;
+			height: 50px;
+			cursor: pointer;
+			outline: none;
+			border: none;
+			border-radius: 10px;
+			color: black;
+			padding: 15px 32px;
+			text-align: center;
+			display: inline-block;
+			font-size: 20px;
+			font-weight: bold;
+			box-shadow: 0 2px #999;
+		}
+
+		.btn:hover 
+		{
+			background-color: #3e8e41
+		}
+
+		.btn:active {
+			background-color: #3e8e41;
+			box-shadow: 0 1px #666;
+			transform: translateY(2px);
+		}
+
+		#tarea{
+			position: absolute;
+			top:2%;
+			margin-top:1px;
+			margin-left:15px;
+			width: 92%;
+			height: 68%;
+			border-radius: 10px;
+		}
+
+		#retention{
+			margin-top: 8px;
+			width: 100%;
+			height: 25px; 			
+			border-radius: 4px;
+		}
+
+		#d1{
+			margin-top: 10px;
+			position: absolute;
+			width: 92%;
+			top:72%;
+			font-family: verdana;
+			font-size: 16px;
+			font-weight: bold;
+			margin-left:3%;
+		}
+
+		#op{
+			position: absolute;
+			top: 15%;
+			left: 55%;
+			height: 77%;
+			width: 40%;
+			padding-left: 10px;
+			padding-right: 10px;
+			background-color: #e6e6ff;
+			font-size: 20px;
+			border: 1px solid black; 
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body style="background-image: url({% static 'images\corinne-kutz-oqCT1SnKcRY-unsplash.jpg' %});">
+    <div id="label">Text Summarizer</div>
+    
+    <form action="external/" method="POST">
+        <table>
+            <tr>
+                <td>
+                    <textarea rows="24" id="tarea" name="param" placeholder="Enter your text"></textarea>
+                </td>
+            </tr>
+    
+            <tr>
+                <td>
+                    <div id="d1">Enter Retention Rate: <input type="text" name="retain" id="retention" placeholder="in percentage(%)"></div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><button class="btn">Get Summary</button></td>
+            </tr>
+    
+        </table>
+    
+        <span id="op">
+			{% csrf_token %}
+			<br>
+            <!-- {{data_external}} <br><br> -->
+			{{data1}}
+			<br>
+        </span>
+
+
+    </form>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <body>
+    
+        <form action="external/" method="POST">
+            {% csrf_token %}
+            Input Text: <input type="text" name="param" required><br><br>
+            {{data_external}} <br><br>
+            {{data1}}<br><br>
+            <input type="submit" value="Execute external python script">
+        </form>
+    </body> -->
